@@ -1,0 +1,131 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    height: 100vh;
+    background:linear-gradient(270deg, orangered, orange);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    color:rgb(252, 253, 255);
+    font-size: 10rem;
+    margin-top: 80px;
+    margin-bottom: 15px;
+}
+.swiper {
+    width: 100%;
+    padding-top: 20px;
+    height:60%;
+
+}
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 1890px;
+    height: 1536px;
+}
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, rgba(21, 20, 19, 0.842),rgba(144, 144, 144, 0.342));
+    height: 1000px;
+    object-fit: cover;
+}
+.swiper-slide-active {
+    transform: scale(1.2);
+    border: 5px solid white ;
+    
+}
+.swiper-slide:not(.swiper-slide-active) {
+    transform: scale(0.7);
+    opacity: 0.7;
+}
+.swiper-slide img:hover {
+    transform: translateZ(20px);
+    border: 20px solid white ;
+    
+}
+.overlay {
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background: rgba(150, 147, 147, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: right;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1000; 
+}
+
+.overlay-content{
+    position: relative;
+    z-index: 2;
+    color: aliceblue;
+    text-align: left;
+    font-size: 2rem;
+    width: 95%;
+    max-width: 100%;
+    height: 100%;
+    padding: 20px;
+    background-color: rgba(61, 61, 61, 0.8);
+    border-radius: 10px;
+}
+
+#overlay-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+.overlay-text {
+    padding: 10px;
+    width: 40%;
+    font-size: 10rem;
+    color: white;
+    text-align: left;
+    display: flex;
+    align-items: right;
+    z-index: 1000;
+}
+
+#close-btn {
+    position: absolute;
+    top: 1px;
+    right: 100px;
+    font-size: 20rem;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    z-index: 3;
+}
+/*responsive*/
+@media screen and (max-width: 768px) {
+  .overlay-content{
+    width:100%;
+    font-size: 15rem;
+  }
+
+  #overlay-image {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .overlay-text {
+    width: 100%;
+    text-align: center;
+  }
+}
+

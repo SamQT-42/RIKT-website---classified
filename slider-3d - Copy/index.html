@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Slider</title>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>ABOUT US</h1>
+     <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img src="assets/img 1 (1).jpg"/>
+        </div>
+        <div class="swiper-slide">
+            <img src="assets/img 2 (1).jpg"/>
+        </div>
+        <div class="swiper-slide">
+            <img src="assets/img 3 (1).jpg"/>
+        </div>
+        <div class="swiper-slide">
+            <img src="assets/img 4 (1).jpg"/>
+        </div>
+        <div class="swiper-slide">
+            <img src="assets/img 5 (1).jpg" />
+        </div>
+        <div class="swiper-slide">
+            <img src="assets/img 6 (1).jpg" />
+        </div>
+        <div class="swiper-slide">
+            <img src="assets/img 7 (1).jpg" />
+        </div>
+        <div class="swiper-slide">
+            <img src="assets/img 1 (1).jpg"/>
+        </div>
+        <div class="swiper-slide">
+            <img src="assets/img 2 (1).jpg"/>
+        </div>
+        <div class="swiper-slide">
+            <img src="assets/img 3 (1).jpg"/>
+        </div>
+        <div class="swiper-slide">
+            <img src="assets/img 4 (1).jpg"/>
+        </div>
+        <div class="swiper-slide">
+            <img src="assets/img 5 (1).jpg" />
+        </div>
+        <div class="swiper-slide">
+            <img src="assets/img 6 (1).jpg" />
+        </div>
+        <div class="swiper-slide">
+            <img src="assets/img 7 (1).jpg" />
+        </div>
+    </div>
+  </div>
+  <div id="image-overlay" class="overlay">
+    <img id="overlay-image" src="" alt="Expanded Image">
+    <div class="overlay-content">
+            <p id ="overlay-text">Description will go herre</p>
+    </div>
+    <span id="close-btn">&times;</span>
+    </div>
+  </div>
+
+
+     <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      effect: "coverflow",
+      centeredSlides: true,
+      grabcursor: true,
+      slidesPerView: "auto",
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+      },
+      loop: true,
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const slides = document.querySelectorAll(".swiper-slide img");
+        const overlay = document.getElementById("image-overlay");
+        const overlayImage = document.getElementById("overlay-image");
+        const overlayText = document.getElementById("overlay-text");
+        const closeBtn = document.getElementById("close-btn");
+
+        const descriptions = [
+            "This is image 1 description.",
+            "This is image 2 description.",
+            "THis is image 3 description.",
+            "This is image 4 description.",
+            "This is image 5 description.",
+            "This is image 6 description.",
+            "This is image 7 description."
+        ];
+        
+        slides.forEach((img, index) => {
+        img.addEventListener("click", function () {
+        overlayImage.src = img.src;
+        overlayText.textContent = descriptions[index];
+        overlay.style.display = "flex";  // Show the overlay
+        setTimeout(() => {
+            overlay.style.opacity = "1";
+                }, 10);  // Small delay for smooth fade-in
+            });
+        });
+
+        closeBtn.addEventListener("click", function () {
+        overlay.style.opacity = "0";
+        setTimeout(() => {
+        overlay.style.display = "none";
+            }, 300);  // Delay matches transition time
+        });
+
+        overlay.addEventListener("click", function (event) {
+        if (event.target === overlay) {
+        overlay.style.opacity = "0";
+        setTimeout(() => {
+        overlay.style.display = "none";
+                }, 300);
+            }
+        });
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+
+  h1{
+    font-size: 16rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 60px;
+    margin-top: none;
+    font-family: 'Courier New', Courier, monospace;
+  }
+body{
+  background: linear-gradient(orange, rgb(248, 222, 57));
+  min-height: 100vh;
+  display: flex;
+  place-items:center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.slider {
+  height: 1000px;
+  margin: auto;
+  position: relative;
+  width: 100%;
+  display: flex;
+  place-items: center;
+}
+
+.slider-track {
+  display: flex;
+  right: 0;
+  width: calc(1000px * 14);
+  animation: scroll 20s linear infinite;
+}
+
+.slider-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-1000px * 7));
+  }
+}
+
+.slide {
+  height: 1000px;
+  width: 3400px;
+  display: flex;
+  align-items: center;
+  padding: 50px;
+  perspective: 80px;
+}
+
+img {
+  width: 2400px;
+  height: 1400px;
+  object-fit: cover;
+  transition: transform 0.5s;
+  display: block;
+}
+
+img:hover {
+  transform: translateZ(5px);
+  border: 20px solid white ;
+  right: 0;
+}
+
+
+
