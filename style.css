@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+}
+
+.slideshow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 60vh;
+    position: relative;
+}
+
+.slide {
+    width: 25%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    position: absolute;
+    border-radius: 0px;
+    filter: brightness(50%);
+    background-color: black;
+}
+
+.active {
+    width: 50%;
+    height: 110%;
+    filter: brightness(100%);
+    z-index: 10;
+    position: relative;
+}
+
+/* Text box inside active slide */
+.slide-content {
+    position: absolute;
+    right:10%;
+    top: 0;
+    left: 10%;
+    max-width: unset; /* Covers half the image */
+    height: 100%; /* Covers full height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers text vertically */
+    align-items: flex-start; /* Aligns text to the left inside the black fade */
+    padding-left: 20%; /* Adjust spacing from the left inside the fade */
+    padding-right: 50%; /* Add some right padding */
+    color: white;
+    text-align: right;
+    background: linear-gradient(to left, black, transparent);
+    overflow: hidden;
+}
+
+.slide-content h2 {
+    font-size: 5rem; /* Adjust heading size */
+    font-weight: bold;
+    margin-bottom: 10px;
+    justify-content: left;
+    margin-left: 300px;
+    padding-left: 20%;
+}
+
+.slide-content p {
+    font-size: 3rem;
+    line-height: 1.5;
+    margin-bottom: 5px;
+    border-bottom: 1px solid gray; /* Gray lines under text */
+    width: 100%; /* Adjust width */
+    justify-content: left;
+    margin-left: 300px;
+    padding-left: 20%;
+}
+
+.slide-content-active {
+    position: absolute;
+    right:0%;
+    top: 0;
+    left: 10%;
+    max-width: unset; /* Covers half the image */
+    height: 100%; /* Covers full height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers text vertically */
+    align-items: flex-start; /* Aligns text to the left inside the black fade */
+    padding-left: 20%; /* Adjust spacing from the left inside the fade */
+    padding-right: 50%; /* Add some right padding */
+    color: white;
+    text-align: right;
+    background: linear-gradient(to left, black, transparent);
+    overflow: hidden;
+}
+.slide-content-active p{
+    font-size: 7rem;
+    line-height: 1.5;
+    margin-bottom: 5px;
+    border-bottom: 1px solid gray; /* Gray lines under text */
+    width: 100%; /* Adjust width */
+    justify-content: left;
+    margin-left: 400px;
+    padding-left: 20%;
+    display: grid;
+    
+}
+.slide-content-active h2{
+    font-size: 10rem; /* Adjust heading size */
+    font-weight: bold;
+    margin-bottom: 10px;
+    justify-content: left;
+    margin-left: 500px;
+    display: right;
+}
+
+/* Left and Right Slide Positioning */
+.left {
+    left: 10%;
+}
+
+.right {
+    right: 10%;
+}
+
+/* Hover Effect */
+.slide:hover {
+    filter: brightness(90%);
+    border: 5px solid rgb(22, 20, 20);
+}
+
+@media (max-width: 768px) {
+    .slide-content {
+        width: 100%; /* Take full width */
+        padding: 10px; /* Reduce padding */
+        text-align: center; /* Center align text */
+        align-items: center; /* Center within container */
+    }
+
+    .slide-content-active h2 {
+        font-size: 1.5em; /* Adjust heading size for mobile */
+    }
+
+    .slide-content-active p {
+        font-size: 0.9em; /* Reduce text size */
+    }
+}
